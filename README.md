@@ -30,6 +30,22 @@ Future updates may include **automatic tuning for `n_estimators`** in the Random
 
 ---
 
+## 💾 Using Your Own Data  
+
+If you want to use this code with your own dataset, make sure to change the following lines accordingly:  
+
+```python
+# Load your dataset
+df = pd.read_csv('yourfile.csv')
+
+# Define predictor and target variables
+X = df[['X1', 'X2', 'Xn']]   # replace with your predictor columns
+y = df['TargetVar']           # replace with your target column
+
+# Scale only predictor variables
+scaler.fit(df.drop(['TargetVar'], axis=1))
+scaled_feat = scaler.transform(df.drop(['TargetVar'], axis=1))
+
 ## 🧩 Required Libraries  
 
 Before running the program, make sure the following packages are installed:
